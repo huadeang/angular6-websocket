@@ -1,0 +1,17 @@
+<h1>WebSocket Message</h1>
+
+<div>
+  <ul>
+    <li>
+        Message from Server
+    </li>
+    <li>
+      {{serverMsg}}
+    </li>
+  </ul>
+  <div>
+  <label>Message :<input [(ngModel)]="msg" placeholder="Message"/>
+    </label>
+    <button (click)="send()">Send</button>
+  </div>
+</div>
