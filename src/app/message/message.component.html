@@ -1,17 +1,23 @@
 <h1>WebSocket Message</h1>
 
 <div>
+    <label>Message :</label><textarea [(ngModel)]="msg" placeholder="Remember, be nice!" cols="30" rows="5"></textarea>
+      
+      <button (click)="send()">Send</button>
+    </div>
+
+<div>
   <ul>
-    <li>
-        Message from Server
-    </li>
-    <li>
-      {{serverMsg}}
+      <li>
+          Message from Server
+      </li>
+  </ul>
+  <ul [@listStagger]="startAnimate"
+    (@listStagger.start)="animationStarted($event)"
+    (@listStagger.done)="animationDone($event)"> 
+    <li *ngFor="let msg of message$">
+      {{msg}}
     </li>
   </ul>
-  <div>
-  <label>Message :<input [(ngModel)]="msg" placeholder="Message"/>
-    </label>
-    <button (click)="send()">Send</button>
-  </div>
+  
 </div>
